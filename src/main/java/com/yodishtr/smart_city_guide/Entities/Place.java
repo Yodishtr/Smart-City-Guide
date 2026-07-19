@@ -82,4 +82,77 @@ public class Place {
         this.longitude = longitude;
     }
 
+    // getters
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public CATEGORY getCategory() {
+        return category;
+    }
+
+    public int getRating() {
+        return rating;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public City getCity() {
+        return city;
+    }
+
+    // Setters
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setCategory(CATEGORY category) {
+        this.category = category;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+
+    public void setCity(City city) {
+        this.city = city;
+    }
 }

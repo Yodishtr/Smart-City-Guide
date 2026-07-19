@@ -2,6 +2,7 @@ package com.yodishtr.smart_city_guide.Entities;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -24,7 +25,7 @@ public class City {
 
     // places
     @OneToMany(mappedBy = "city", orphanRemoval = true, cascade = CascadeType.ALL)
-    private List<Place> places;
+    private List<Place> places = new ArrayList<>();
 
     public City() {}
 
@@ -86,8 +87,17 @@ public class City {
     }
 
     public void addPlace(Place place) {
-        this.places.add(place);
-        place.setCity(this);
+        if (places != null) {
+            this.places.add(place);
+            place.setCity(this);
+        }
+    }
+
+    public void removePlace(Place place) {
+        if (places != null) {
+            this.places.remove(place);
+            place.setCity(null);
+        }
     }
 
 }
