@@ -6,6 +6,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Table (
+        name = "cities",
+        uniqueConstraints = {
+                @UniqueConstraint(
+                        name = "country_city_name_unique",
+                        columnNames = {"name", "country"}
+                )
+        }
+)
 public class City {
 
     @Id
