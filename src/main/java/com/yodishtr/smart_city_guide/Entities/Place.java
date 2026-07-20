@@ -5,8 +5,18 @@ import org.hibernate.annotations.Check;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 @Entity
+@Table (
+        name = "place",
+        uniqueConstraints = {
+                @UniqueConstraint(
+                        name = "place_name_category_unique",
+                        columnNames = {"name", "category"}
+                )
+        }
+)
 public class Place {
 
     public enum CATEGORY {
@@ -154,5 +164,21 @@ public class Place {
 
     public void setCity(City city) {
         this.city = city;
+    }
+
+    // equals and hashcode method to determine the equality of place objects
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Place place = (Place) o;
+        return Objects.equals(name, place.getName()) &&
+                Objects.equals(category, place.getCategory());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, category);
     }
 }
