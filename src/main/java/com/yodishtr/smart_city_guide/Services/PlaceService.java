@@ -31,4 +31,21 @@ public class PlaceService {
         }
         return new ArrayList<>(placesSet);
     }
+
+    public List<Place> getPlacesByCategory(String category) {
+        Place.CATEGORY currentCategory = Place.CATEGORY.fromValue(category);
+        ArrayList<Place> placesList = new ArrayList<>();
+        for (Place place : placesRepository.findByCategory(currentCategory)) {
+            placesList.add(place);
+        }
+        return placesList;
+    }
+
+    public List<Place> getPlacesByName(String name) {
+        ArrayList<Place> placesList = new ArrayList<>();
+        for (Place place : placesRepository.findByName(name)) {
+            placesList.add(place);
+        }
+        return placesList;
+    }
 }
